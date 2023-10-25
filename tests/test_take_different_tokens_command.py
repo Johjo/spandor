@@ -5,8 +5,15 @@ from domain.commands.stake_different_tokens_command import TakeDifferentTokensCo
 from domain.domain import Board, Player, Stock
 
 class StockBuilder:
+    def __init__(self):
+        self.red = 4
+        self.green = 4
+        self.blue = 4
+        self.white = 4
+        self.black = 4
+
     def build(self):
-        return Stock(4, 4, 4, 4, 4)
+        return Stock(red=self.red, green=self.green, blue=self.blue, white=self.white, black=self.black)
 
 
 class PlayerBuilder:
