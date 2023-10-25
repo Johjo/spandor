@@ -73,6 +73,10 @@ def a_player():
     return PlayerBuilder()
 
 
+def a_game():
+    return BoardBuilder()
+
+
 def test_should_first_player_take_token():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
@@ -86,14 +90,7 @@ def test_should_first_player_take_token():
 
     # then
     # i have 1 red, 1 green; 1 black, 0 white, 0 blue
-    expected = Board(yellow=0,
-                     stock=StockBuilder().with_stock(red=3, green=3, black=3, blue=4, white=4).build(),
-                     card_level_1=4,
-                     card_level_2=4, card_level_3=4, number_of_nobles=3,
-                     players=[PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)).build(),
-                              PlayerBuilder().build()])
-
-    expected = BoardBuilder()\
+    expected = a_game()\
                    .with_stock(a_stock(red=3, green=3, black=3, blue=4, white=4))\
                    .with_players([
                         a_player().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
