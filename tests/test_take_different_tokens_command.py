@@ -97,7 +97,7 @@ def test_should_first_player_take_token():
                    .with_stock(a_stock(red=3, green=3, black=3, blue=4, white=4))\
                    .with_players([
                         a_player().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
-                        PlayerBuilder()]).build()
+                        a_player()]).build()
 
     actual = game_repository.get_game()
     assert actual == expected
