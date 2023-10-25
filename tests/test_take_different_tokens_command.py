@@ -116,16 +116,11 @@ def test_should_first_player_take_token_bis():
 
     # then
     # i have 0 red, 1 green; 0 black, 1 white, 1 blue
-    expected = Board(yellow=0,
-                     stock=Stock(red=4, green=3, black=4, white=3, blue=3),
-                     card_level_1=4,
-                     card_level_2=4, card_level_3=4, number_of_nobles=3,
-                     players=[Player(Stock(red=0, green=1, black=0, white=1, blue=1)),
-                              Player(stock=create_stock(quantity=0))])
-
     expected = a_game()\
         .with_stock(a_stock(red=4, green=3, black=4, white=3, blue=3))\
-        .with_players([a_player().with_stock(a_stock(red=0, green=1, black=0, white=1, blue=1)), a_player()])\
+        .with_players([
+            a_player().with_stock(a_stock(red=0, green=1, black=0, white=1, blue=1)),
+            a_player()])\
         .build()
 
     actual = game_repository.get_game()
