@@ -10,13 +10,18 @@ class StockBuilder:
         return create_stock(quantity=4)
 
 @dataclasses.dataclass
+class PlayerBuilder:
+    def build(self):
+        return Player(stock=create_stock(quantity=0))
+
+@dataclasses.dataclass
 class BoardBuilder:
     def build(self):
         return Board(yellow=0,
               stock=StockBuilder().build(),
               card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=3,
-              players=[Player(stock=create_stock(quantity=0)),
-                       Player(stock=create_stock(quantity=0))])
+              players=[PlayerBuilder().build(),
+                       PlayerBuilder().build()])
 
 
 def test_should_first_player_take_token():
