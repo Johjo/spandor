@@ -56,6 +56,14 @@ class BoardBuilder:
                      card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
                      players=[player.build() for player in self.players])
 
+    def with_stock(self, stock):
+        self.stock = stock
+        return self
+
+    def with_players(self, players):
+        self.players = players
+        return self
+
 
 def test_should_first_player_take_token():
     # given
@@ -77,9 +85,11 @@ def test_should_first_player_take_token():
                      players=[PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)).build(),
                               PlayerBuilder().build()])
 
-    # expected = BoardBuilder().with_stock(StockBuilder().with_stock(red=3, green=3, black=3, blue=4, white=4)),
-    #                  players=[PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)).build(),
-    #                           PlayerBuilder().build()])
+    expected = BoardBuilder()\
+                   .with_stock(StockBuilder().with_stock(red=3, green=3, black=3, blue=4, white=4))\
+                   .with_players([
+                        PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
+                        PlayerBuilder()]).build()
 
     actual = game_repository.get_game()
     assert actual == expected
