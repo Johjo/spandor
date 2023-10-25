@@ -4,19 +4,16 @@ from adapters.game_repository_in_memory import GameRepositoryInMemory
 from domain.commands.stake_different_tokens_command import TakeDifferentTokensCommand
 from domain.domain import Board, Player, Stock
 
-@dataclasses.dataclass
 class StockBuilder:
     def build(self):
         return create_stock(quantity=4)
 
 
-@dataclasses.dataclass
 class PlayerBuilder:
     def build(self):
         return Player(stock=create_stock(quantity=0))
 
 
-@dataclasses.dataclass
 class BoardBuilder:
     def build(self):
         return Board(yellow=0,
