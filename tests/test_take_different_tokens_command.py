@@ -80,9 +80,8 @@ def a_game():
 def test_should_first_player_take_token():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
-    game = BoardBuilder().build()
     game_repository = GameRepositoryInMemory()
-    game_repository.feed(game)
+    game_repository.feed(a_game().build())
     # when
     # i take 1 red, 1 green; 1 black
     command = TakeDifferentTokensCommand(game_repository=game_repository)
