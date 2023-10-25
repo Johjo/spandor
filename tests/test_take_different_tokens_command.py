@@ -6,7 +6,7 @@ from domain.domain import Board, Player, Stock
 
 class StockBuilder:
     def build(self):
-        return create_stock(quantity=4)
+        return Stock(4, 4, 4, 4, 4)
 
 
 class PlayerBuilder:
