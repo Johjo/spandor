@@ -15,7 +15,7 @@ class TakeDifferentTokensCommand:
                 player.stock.increase(color, quantity=1)
                 quantity += 1
 
-        if quantity == 4:
+        if quantity > 3:
             raise TooManyTokensTakenException()
 
         self.game_repository.save(board)

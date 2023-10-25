@@ -45,8 +45,11 @@ def test_should_first_player_take_token(tokens, expected):
     actual = game_repository.get_game()
     assert actual == expected.build()
 
-
-def test_should_tell_when_take_too_many_tokens():
+@pytest.mark.parametrize("tokens",[
+    ({"red": True, "green": True, "black": True, "white": True, "blue": False}),
+    ({"red": True, "green": True, "black": True, "white": True, "blue": True})
+])
+def test_should_tell_when_take_too_many_tokens(tokens):
     # given
     game_repository = GameRepositoryInMemory()
     game_repository.feed(a_game().starting_for_two_players().build())
@@ -54,4 +57,4 @@ def test_should_tell_when_take_too_many_tokens():
     # when / then
     with pytest.raises(TooManyTokensTakenException):
         command = TakeDifferentTokensCommand(game_repository=game_repository)
-        command.execute(red=True, green=True, black=True, white=True, blue=False)
+        command.execute(**tokens)
