@@ -6,22 +6,30 @@ from domain.domain import Board, Player, Stock
 
 class StockBuilder:
     def __init__(self):
-        self.red = 4
-        self.green = 4
-        self.blue = 4
-        self.white = 4
-        self.black = 4
-
-    def with_empty_stock(self):
         self.red = 0
         self.green = 0
         self.blue = 0
         self.white = 0
         self.black = 0
+
+    def with_same_quantity(self, quantity):
+        self.red = self.green = self.blue = self.white = self.black = quantity
+        return self
+
+    def with_empty_stock(self):
+        self.red = self.green = self.blue = self.white = self.black = 0
         return self
 
     def build(self):
         return Stock(red=self.red, green=self.green, blue=self.blue, white=self.white, black=self.black)
+
+    def with_stock(self, red, green, black, blue, white):
+        self.red = red
+        self.green = green
+        self.black = black
+        self.blue = blue
+        self.white = white
+        return self
 
 
 class PlayerBuilder:
@@ -31,10 +39,14 @@ class PlayerBuilder:
     def build(self):
         return Player(self.stock.build())
 
+    def with_stock(self, stock):
+        self.stock = stock
+        return self
+
 
 class BoardBuilder:
     def __init__(self):
-        self.stock = StockBuilder()
+        self.stock = StockBuilder().with_same_quantity(quantity=4)
         self.players = [PlayerBuilder(), PlayerBuilder()]
         self.number_of_nobles = 3
 
@@ -59,11 +71,15 @@ def test_should_first_player_take_token():
     # then
     # i have 1 red, 1 green; 1 black, 0 white, 0 blue
     expected = Board(yellow=0,
-                     stock=Stock(red=3, green=3, black=3, blue=4, white=4),
+                     stock=StockBuilder().with_stock(red=3, green=3, black=3, blue=4, white=4).build(),
                      card_level_1=4,
                      card_level_2=4, card_level_3=4, number_of_nobles=3,
-                     players=[Player(Stock(red=1, green=1, black=1, white=0, blue=0)),
-                              Player(Stock(red=0, green=0, black=0, white=0, blue=0))])
+                     players=[PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)).build(),
+                              PlayerBuilder().build()])
+
+    # expected = BoardBuilder().with_stock(StockBuilder().with_stock(red=3, green=3, black=3, blue=4, white=4)),
+    #                  players=[PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)).build(),
+    #                           PlayerBuilder().build()])
 
     actual = game_repository.get_game()
     assert actual == expected
