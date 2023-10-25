@@ -15,12 +15,16 @@ class PlayerBuilder:
 
 
 class BoardBuilder:
+    def __init__(self):
+        self.stock = StockBuilder()
+        self.players = [PlayerBuilder(), PlayerBuilder()]
+        self.number_of_nobles = 3
+
     def build(self):
         return Board(yellow=0,
-              stock=StockBuilder().build(),
-              card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=3,
-              players=[PlayerBuilder().build(),
-                       PlayerBuilder().build()])
+                     stock=self.stock.build(),
+                     card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
+                     players=[player.build() for player in self.players])
 
 
 def test_should_first_player_take_token():
