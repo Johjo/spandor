@@ -2,15 +2,19 @@ from adapters.game_repository_in_memory import GameRepositoryInMemory
 from domain.commands.stake_different_tokens_command import TakeDifferentTokensCommand
 from domain.domain import Board, Player, Stock
 
+class BoardBuilder:
+    def build(self):
+        return Board(yellow=0,
+              stock=create_stock(quantity=4),
+              card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=3,
+              players=[Player(stock=create_stock(quantity=0)),
+                       Player(stock=create_stock(quantity=0))])
+
 
 def test_should_first_player_take_token():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
-    game = Board(yellow=0,
-                 stock=create_stock(quantity=4),
-                 card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=3,
-                 players=[Player(stock=create_stock(quantity=0)),
-                          Player(stock=create_stock(quantity=0))])
+    game = BoardBuilder().build()
     game_repository = GameRepositoryInMemory()
     game_repository.feed(game)
     # when
