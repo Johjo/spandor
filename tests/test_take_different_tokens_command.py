@@ -1,23 +1,6 @@
 from adapters.game_repository_in_memory import GameRepositoryInMemory
+from domain.commands.stake_different_tokens_command import TakeDifferentTokensCommand
 from domain.domain import Board, Player, Stock
-
-
-class TakeDifferentTokensCommand:
-    def __init__(self, game_repository):
-        self.game_repository = game_repository
-
-    def execute(self, blue, green, red, black, white):
-        board = self.game_repository.get_game()
-        player = board.players[0]
-
-        tokens = [("red", red), ("blue", blue), ("green", green), ("black", black), ("white", white), ]
-
-        for (color, taken) in tokens:
-            if taken:
-                board.stock.decrease(color, quantity=1)
-                player.stock.increase(color, quantity=1)
-
-        self.game_repository.save(board)
 
 
 def test_should_first_player_take_token():
@@ -46,10 +29,6 @@ def test_should_first_player_take_token():
 
     actual = game_repository.get_game()
     assert actual == expected
-
-
-def create_stock(quantity):
-    return Stock(quantity, quantity, quantity, quantity, quantity)
 
 
 def test_should_first_player_take_token_bis():
@@ -81,3 +60,7 @@ def test_should_first_player_take_token_bis():
 
     actual = game_repository.get_game()
     assert actual == expected
+
+
+def create_stock(quantity):
+    return Stock(quantity, quantity, quantity, quantity, quantity)
