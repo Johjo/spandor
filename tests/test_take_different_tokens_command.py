@@ -12,13 +12,21 @@ class StockBuilder:
         self.white = 4
         self.black = 4
 
+    def with_empty_stock(self):
+        self.red = 0
+        self.green = 0
+        self.blue = 0
+        self.white = 0
+        self.black = 0
+        return self
+
     def build(self):
         return Stock(red=self.red, green=self.green, blue=self.blue, white=self.white, black=self.black)
 
 
 class PlayerBuilder:
     def build(self):
-        return Player(stock=create_stock(quantity=0))
+        return Player(StockBuilder().with_empty_stock().build())
 
 
 class BoardBuilder:
