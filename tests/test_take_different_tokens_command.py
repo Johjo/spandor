@@ -1,7 +1,10 @@
+import dataclasses
+
 from adapters.game_repository_in_memory import GameRepositoryInMemory
 from domain.commands.stake_different_tokens_command import TakeDifferentTokensCommand
 from domain.domain import Board, Player, Stock
 
+@dataclasses.dataclass
 class BoardBuilder:
     def build(self):
         return Board(yellow=0,
