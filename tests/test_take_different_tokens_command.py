@@ -25,8 +25,11 @@ class StockBuilder:
 
 
 class PlayerBuilder:
+    def __init__(self):
+        self.stock = StockBuilder().with_empty_stock()
+
     def build(self):
-        return Player(StockBuilder().with_empty_stock().build())
+        return Player(self.stock.build())
 
 
 class BoardBuilder:
