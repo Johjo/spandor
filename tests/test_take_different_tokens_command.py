@@ -5,10 +5,15 @@ from domain.commands.stake_different_tokens_command import TakeDifferentTokensCo
 from domain.domain import Board, Player, Stock
 
 @dataclasses.dataclass
+class StockBuilder:
+    def build(self):
+        return create_stock(quantity=4)
+
+@dataclasses.dataclass
 class BoardBuilder:
     def build(self):
         return Board(yellow=0,
-              stock=create_stock(quantity=4),
+              stock=StockBuilder().build(),
               card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=3,
               players=[Player(stock=create_stock(quantity=0)),
                        Player(stock=create_stock(quantity=0))])
