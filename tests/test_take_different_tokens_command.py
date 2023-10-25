@@ -9,10 +9,12 @@ class StockBuilder:
     def build(self):
         return create_stock(quantity=4)
 
+
 @dataclasses.dataclass
 class PlayerBuilder:
     def build(self):
         return Player(stock=create_stock(quantity=0))
+
 
 @dataclasses.dataclass
 class BoardBuilder:
