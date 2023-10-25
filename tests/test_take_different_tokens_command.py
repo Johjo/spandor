@@ -69,6 +69,10 @@ def a_stock(red, green, black, blue, white):
     return StockBuilder().with_stock(red=red, green=green, black=black, blue=blue, white = white)
 
 
+def a_player():
+    return PlayerBuilder()
+
+
 def test_should_first_player_take_token():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
@@ -92,7 +96,7 @@ def test_should_first_player_take_token():
     expected = BoardBuilder()\
                    .with_stock(a_stock(red=3, green=3, black=3, blue=4, white=4))\
                    .with_players([
-                        PlayerBuilder().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
+                        a_player().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
                         PlayerBuilder()]).build()
 
     actual = game_repository.get_game()
