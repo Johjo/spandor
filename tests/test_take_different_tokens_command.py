@@ -125,7 +125,3 @@ def test_should_first_player_take_token_bis():
 
     actual = game_repository.get_game()
     assert actual == expected
-
-
-def create_stock(quantity):
-    return Stock(quantity, quantity, quantity, quantity, quantity)
