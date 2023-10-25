@@ -46,9 +46,13 @@ class PlayerBuilder:
 
 class BoardBuilder:
     def __init__(self):
+        self.starting_for_two_players()
+
+    def starting_for_two_players(self):
         self.stock = StockBuilder().with_same_quantity(quantity=4)
         self.players = [PlayerBuilder(), PlayerBuilder()]
         self.number_of_nobles = 3
+        return self
 
     def build(self):
         return Board(yellow=0,
@@ -81,7 +85,8 @@ def test_should_first_player_take_token():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
     game_repository = GameRepositoryInMemory()
-    game_repository.feed(a_game().build())
+    game_repository.feed(a_game().starting_for_two_players().build())
+
     # when
     # i take 1 red, 1 green; 1 black
     command = TakeDifferentTokensCommand(game_repository=game_repository)
@@ -92,7 +97,7 @@ def test_should_first_player_take_token():
     expected = a_game()\
                    .with_stock(a_stock(red=3, green=3, black=3, blue=4, white=4))\
                    .with_players([
-                        a_player().with_stock(StockBuilder().with_stock(red=1, green=1, black=1, white=0, blue=0)),
+                        a_player().with_stock(a_stock(red=1, green=1, black=1, white=0, blue=0)),
                         a_player()]).build()
 
     actual = game_repository.get_game()
@@ -102,16 +107,8 @@ def test_should_first_player_take_token():
 def test_should_first_player_take_token_bis():
     # given
     # i have 0 red, 0 green; 0 black, 0 white, 0 blue
-    game = Board(yellow=0,
-                 stock=create_stock(quantity=4),
-                 card_level_1=4, card_level_2=4, card_level_3=4,
-                 number_of_nobles=3,
-                 players=[
-                     Player(stock=create_stock(quantity=0)),
-                     Player(stock=create_stock(quantity=0))])
-
     game_repository = GameRepositoryInMemory()
-    game_repository.feed(game)
+    game_repository.feed(a_game().starting_for_two_players().build())
     # when
     # i take 1 blue, 1 green; 1 white
     command = TakeDifferentTokensCommand(game_repository=game_repository)
@@ -125,6 +122,11 @@ def test_should_first_player_take_token_bis():
                      card_level_2=4, card_level_3=4, number_of_nobles=3,
                      players=[Player(Stock(red=0, green=1, black=0, white=1, blue=1)),
                               Player(stock=create_stock(quantity=0))])
+
+    expected = a_game()\
+        .with_stock(a_stock(red=4, green=3, black=4, white=3, blue=3))\
+        .with_players([a_player().with_stock(a_stock(red=0, green=1, black=0, white=1, blue=1)), a_player()])\
+        .build()
 
     actual = game_repository.get_game()
     assert actual == expected
