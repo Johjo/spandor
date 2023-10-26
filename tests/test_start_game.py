@@ -1,5 +1,7 @@
 import uuid
 
+import pytest
+
 from adapters.game_repository_in_memory import GameRepositoryInMemory
 from domain.commands.start_game_command import StartGameCommand
 from domain.domain import Board, Player, Stock
@@ -16,7 +18,11 @@ class CardRepositoryStubbed:
     def draw_many(self, level, quantity):
         return self.cards[(level, quantity)]
 
-def test_should_start_game_for_two_players():
+@pytest.mark.parametrize("number_of_players,expected", [
+    (2, BoardBuilder().starting_for_two_players()),
+    (3, BoardBuilder().starting_for_three_players()),
+])
+def test_should_start_game(number_of_players, expected):
     game_repository = GameRepositoryInMemory()
     cards_repository = CardRepositoryStubbed()
 
@@ -24,13 +30,10 @@ def test_should_start_game_for_two_players():
     cards_repository.feed(level=1, quantity=4, cards=level_1_cards)
 
     start_game_command = StartGameCommand(game_repository=game_repository, cards_repository=cards_repository)
-    start_game_command.execute(number_of_players=2)
+    start_game_command.execute(number_of_players=number_of_players)
 
     actual = game_repository.get_game()
-    expected = BoardBuilder()\
-                    .starting_for_two_players()\
-                    .with_cards_level_1(cards=level_1_cards)\
-                    .build()
+    expected = expected.with_cards_level_1(cards=level_1_cards).build()
     assert actual == expected
 
 
