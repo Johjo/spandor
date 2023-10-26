@@ -24,7 +24,7 @@ class Player:
 
 @dataclasses.dataclass
 class Card:
-    pass
+    id: uuid.UUID
 
 
 # todo : renommer Board en Game

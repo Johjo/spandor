@@ -43,7 +43,7 @@ class PlayerBuilder:
 
 class CardBuilder:
     def build(self):
-        return Card()
+        return Card(id=self.id)
 
     def with_id(self, id):
         self.id = id
