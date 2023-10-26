@@ -1,4 +1,4 @@
-from domain.domain import Stock, Player, Board
+from domain.domain import Stock, Player, Board, Card
 
 
 class StockBuilder:
@@ -41,9 +41,19 @@ class PlayerBuilder:
         return self
 
 
+class CardBuilder:
+    def build(self):
+        return Card()
+
+    def with_id(self, id):
+        self.id = id
+        return self
+
+
 class BoardBuilder:
     def __init__(self):
         self.starting_for_two_players()
+        self.cards_1 = []
 
     def starting_for_two_players(self):
         self.stock = StockBuilder().with_same_quantity(quantity=4)
@@ -59,6 +69,10 @@ class BoardBuilder:
         self.yellow = 5
         return self
 
+    def with_cards_level_1(self, cards):
+        self.cards_1 = cards
+        return self
+
     def with_stock(self, stock):
         self.stock = stock
         return self
@@ -70,5 +84,6 @@ class BoardBuilder:
     def build(self):
         return Board(yellow=self.yellow,
                      stock=self.stock.build(),
+                     cards_1=[card.build() for card in self.cards_1],
                      card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
                      players=[player.build() for player in self.players])

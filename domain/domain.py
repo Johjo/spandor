@@ -1,4 +1,5 @@
 import dataclasses
+import uuid
 
 
 @dataclasses.dataclass
@@ -21,14 +22,21 @@ class Player:
     stock: Stock
 
 
+@dataclasses.dataclass
+class Card:
+    pass
+
+
 # todo : renommer Board en Game
 @dataclasses.dataclass
 class Board:
     number_of_nobles: int
     stock: Stock
     yellow: int
+    cards_1: list[Card]
     card_level_3: int
     card_level_2: int
     card_level_1: int
     players: list[Player]
+
 
