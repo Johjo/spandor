@@ -1,7 +1,7 @@
 import pytest
 
 from adapters.game_repository_in_memory import GameRepositoryInMemory
-from domain.commands.stake_different_tokens_command import TakeDifferentTokensCommand, TooManyTokensTakenException
+from domain.commands.take_different_tokens_command import TakeDifferentTokensCommand, TooManyTokensTakenException
 from tests.builder import StockBuilder, PlayerBuilder, BoardBuilder
 
 def a_stock(red, green, black, blue, white):

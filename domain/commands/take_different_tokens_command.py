@@ -7,7 +7,7 @@ class TakeDifferentTokensCommand:
         player = board.players[0]
         quantity = 0
 
-        tokens = [("red", red), ("blue", blue), ("green", green), ("black", black), ("white", white) ]
+        tokens = [("red", red), ("blue", blue), ("green", green), ("black", black), ("white", white)]
 
         for (color, taken) in tokens:
             if taken:
