@@ -38,7 +38,7 @@ def test_should_start_game_for_three_players():
     game_repository = GameRepositoryInMemory()
     cards_repository = CardRepositoryStubbed()
 
-    level_1_cards = [CardBuilder().with_id(uuid.uuid4()) for _ in range(4)]
+    level_1_cards = [a_card().with_id(uuid.uuid4()) for _ in range(4)]
     cards_repository.feed(level=1, quantity=4, cards=level_1_cards)
 
     start_game_command = StartGameCommand(game_repository=game_repository, cards_repository=cards_repository)
@@ -50,3 +50,7 @@ def test_should_start_game_for_three_players():
                     .with_cards_level_1(cards=level_1_cards)\
                     .build()
     assert actual == expected
+
+
+def a_card():
+    return CardBuilder()
