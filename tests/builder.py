@@ -49,13 +49,15 @@ class BoardBuilder:
         self.stock = StockBuilder().with_same_quantity(quantity=4)
         self.players = [PlayerBuilder(), PlayerBuilder()]
         self.number_of_nobles = 3
+        self.yellow = 5
         return self
 
-    def build(self):
-        return Board(yellow=0,
-                     stock=self.stock.build(),
-                     card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
-                     players=[player.build() for player in self.players])
+    def starting_for_three_players(self):
+        self.stock = StockBuilder().with_same_quantity(quantity=5)
+        self.players = [PlayerBuilder(), PlayerBuilder(), PlayerBuilder()]
+        self.number_of_nobles = 4
+        self.yellow = 5
+        return self
 
     def with_stock(self, stock):
         self.stock = stock
@@ -64,3 +66,9 @@ class BoardBuilder:
     def with_players(self, players):
         self.players = players
         return self
+
+    def build(self):
+        return Board(yellow=self.yellow,
+                     stock=self.stock.build(),
+                     card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
+                     players=[player.build() for player in self.players])
