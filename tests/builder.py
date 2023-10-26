@@ -87,3 +87,7 @@ class BoardBuilder:
                      cards_1=[card.build() for card in self.cards_1],
                      card_level_1=4, card_level_2=4, card_level_3=4, number_of_nobles=self.number_of_nobles,
                      players=[player.build() for player in self.players])
+
+
+def a_game():
+    return BoardBuilder()
