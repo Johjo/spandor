@@ -1,3 +1,5 @@
+import uuid
+
 from domain.domain import Stock, Player, Board, Card
 
 
@@ -32,16 +34,24 @@ class StockBuilder:
 class PlayerBuilder:
     def __init__(self):
         self.stock = StockBuilder().with_empty_stock()
-
-    def build(self):
-        return Player(self.stock.build())
+        self.cards = []
 
     def with_stock(self, stock):
         self.stock = stock
         return self
 
+    def with_cards(self, cards):
+        self.cards = cards
+        return self
+
+    def build(self):
+        return Player(stock=self.stock.build(), cards=[card.build() for card in self.cards])
+
 
 class CardBuilder:
+    def __init__(self):
+        self.id = uuid.uuid4()
+
     def build(self):
         return Card(id=self.id)
 

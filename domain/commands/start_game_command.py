@@ -19,5 +19,5 @@ class StartGameCommand:
                   yellow=5,
                   cards_1=cards_level_1,
                   stock=Stock(**{ color: initial_color_tokens_quantity for color in ["red", "black", "green", "white", "blue"]}),
-                  players=[Player(Stock(0, 0, 0, 0, 0)) for _ in range(number_of_players)],
+                  players=[Player(stock=Stock(0, 0, 0, 0, 0), cards=[]) for _ in range(number_of_players)],
                   card_level_3=4, card_level_2=4, card_level_1=4))

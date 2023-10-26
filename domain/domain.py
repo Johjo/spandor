@@ -18,13 +18,14 @@ class Stock:
 
 
 @dataclasses.dataclass
-class Player:
-    stock: Stock
-
-
-@dataclasses.dataclass
 class Card:
     id: uuid.UUID
+
+@dataclasses.dataclass
+class Player:
+    stock: Stock
+    cards: list[Card]
+
 
 
 # todo : renommer Board en Game
