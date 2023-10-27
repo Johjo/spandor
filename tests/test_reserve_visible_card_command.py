@@ -20,17 +20,17 @@ class ReserveVisibleCardCommand:
         self.game_repository.save(game)
 
 
-def test_():
+def test_reserve_a_card_from_level_1():
     # given a game
     game_repository = GameRepositoryInMemory()
     reserved_card = a_card()
-    new_card = a_card()
+    next_card = a_card()
     level_1_cards = [reserved_card, a_card(), a_card(), a_card()]
     game = a_game().starting_for_two_players().with_cards_level_1(level_1_cards)
     game_repository.feed(game.build())
 
     card_repository = CardRepositoryStubbed()
-    card_repository.feed(level=1, quantity=1, cards=[new_card])
+    card_repository.feed(level=1, quantity=1, cards=[next_card])
 
     # when reserve card
     ReserveVisibleCardCommand(game_repository=game_repository, card_repository=card_repository).execute()
@@ -38,7 +38,7 @@ def test_():
     # then player have a card
     expected = a_game()\
                     .starting_for_two_players()\
-                    .with_cards_level_1([new_card, level_1_cards[1], level_1_cards[2], level_1_cards[3]])\
+                    .with_cards_level_1([next_card, level_1_cards[1], level_1_cards[2], level_1_cards[3]])\
                     .with_players([
                         a_player().with_cards([reserved_card]), a_player()])\
                     .build()
