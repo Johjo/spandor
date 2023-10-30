@@ -11,6 +11,7 @@ class CardRepositoryStubbed:
 
     def feed(self, level, quantity, cards):
         self.cards[(level, quantity)] = [card.build() for card in cards]
+        return self
 
     def draw_one_card(self, level):
         return self.cards[(level, 1)][0]

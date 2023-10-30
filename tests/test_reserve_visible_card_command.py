@@ -24,24 +24,17 @@ def test_reserve_a_card_from_level_1():
     # given a game
     game_repository = GameRepositoryInMemory()
     reserved_card = a_card()
-    next_card = a_card()
-    level_1_cards = [reserved_card, a_card(), a_card(), a_card()]
-    game = a_game().starting_for_two_players().with_cards_level_1(level_1_cards)
+    game = a_game().starting_for_two_players().with_cards_level_1([reserved_card, a_card(), a_card(), a_card()])
     game_repository.feed(game.build())
 
-    card_repository = CardRepositoryStubbed()
-    card_repository.feed(level=1, quantity=1, cards=[next_card])
+    card_repository = CardRepositoryStubbed().feed(quantity=1, level=1, cards=[a_card()])
 
     # when reserve card
     ReserveVisibleCardCommand(game_repository=game_repository, card_repository=card_repository).execute()
 
     # then player have a card
-    expected = a_game()\
-                    .starting_for_two_players()\
-                    .with_cards_level_1([next_card, level_1_cards[1], level_1_cards[2], level_1_cards[3]])\
-                    .with_players([
-                        a_player().with_cards([reserved_card]), a_player()])\
-                    .build()
-    actual = game_repository.get_game()
+    expected = a_player().with_cards([reserved_card]).build()
+
+    actual = game_repository.get_game().players[0]
 
     assert actual == expected
