@@ -2,7 +2,7 @@
 
 A game should start 
 
-## Rules : Prepare some game elements at start
+## Rules : Prepare some game elements at start (DONE)
 ```
 Title : Should draw cards
 Given
@@ -16,9 +16,9 @@ Then
     4 cards level 3 are revealed
 ```
 
-## Rules : Some elements depends on number of player  
+## Rules : Some elements depends on number of player (TODO)  
 ```
-Title : Specific preparation for two players
+Title : Specific preparation for two players (DONE)
 Given
     2 players
 When
@@ -28,7 +28,7 @@ Then
     4 tokens are in the stock
     3 nobles are in the board
 
-Title : Specific preparation for three players
+Title : Specific preparation for three players (DONE)
 Given
     3 players
 When
@@ -38,7 +38,7 @@ Then
     5 tokens are in the stock
     4 nobles are in the board
 
-Title : Specific preparation for three players
+Title : Specific preparation for four players (TODO)
 Given
     4 players
 When

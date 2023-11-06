@@ -2,7 +2,7 @@
 
 A player can take tokens
 
-## Player stock increase when player takes tokens
+## Player stock increase when player takes tokens (DONE)
 ```
 Title : add tokens to player's stock
 Given a player with tokens
@@ -23,7 +23,7 @@ Then
     2 red, 2 blue, 1 black, 1 white, 0 green, 0 yellow
 ```
 
-## Stock decrease when player takes tokens
+## Stock decrease when player takes tokens (DONE)
 ```
 Title : decrease stock
 Given
@@ -37,7 +37,7 @@ Then
         3 red, 3 blue, 3 black, 4 white, 4 green, 5 yellow
 ```
 
-## Tell when wrong player takes tokens
+## Tell when wrong player takes tokens (TODO)
 ```
 Title : tell when wrong player takes tokens
 Given
@@ -48,4 +48,34 @@ When
     player B takes tokens
 Then
     tell that's player B is not current player 
+```
+
+## Tell when stock is empty (TODO)
+```
+Title : tell when stock is empty
+Given
+    a player's stock
+        0 red, 0 blue, 0 black, 0 white, 0 green, 0 yellow
+    a stock with tokens
+        0 red, 4 blue, 4 black, 4 white, 4 green, 5 yellow
+When player takes these tokens : 
+    1 red, 1 blue, 1 black
+Then
+    it tells that red stock is empty
+    player's stock is 
+        0 red, 0 blue, 0 black, 0 white, 0 green, 0 yellow
+    stock is
+        0 red, 4 blue, 4 black, 4 white, 4 green, 5 yellow
+    
+```
+
+## Tell when player takes too many tokens
+```
+Title : tell when player takes too many tokens
+Given
+    a player
+When player takes these tokens : 
+    1 red, 1 blue, 1 black, 1 green
+Then
+    it tells that player has taken too many tokens    
 ```
