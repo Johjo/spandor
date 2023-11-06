@@ -1,58 +1,7 @@
 import uuid
-from abc import ABC, abstractmethod
-from dataclasses import dataclass
-
 import pytest
 
-
-@dataclass
-class Card:
-    id: uuid.UUID
-
-
-@dataclass
-class TokenStock:
-    yellow: int
-    green: int
-    red: int
-    blue: int
-    black: int
-    white: int
-
-
-@dataclass
-class Game:
-    cards_level_1: list[Card]
-    cards_level_2: list[Card]
-    cards_level_3: list[Card]
-    tokens: TokenStock
-
-
-class GameStartCommand:
-    def __init__(self, game_repository, card_repository):
-        self.card_repository = card_repository
-        self.game_repository = game_repository
-
-    def execute(self, number_of_players):
-        initial_tokens_quantity = 4 if number_of_players == 2 else 5
-
-        self.game_repository.save_game(Game(
-            cards_level_1=self.card_repository.draw_four_cards(level=1),
-            cards_level_2=self.card_repository.draw_four_cards(level=2),
-            cards_level_3=self.card_repository.draw_four_cards(level=3),
-            tokens=TokenStock(yellow=5, green=initial_tokens_quantity, blue=initial_tokens_quantity,
-                              white=initial_tokens_quantity, red=initial_tokens_quantity,
-                              black=initial_tokens_quantity)))
-
-
-class GameRepository(ABC):
-    @abstractmethod
-    def get_game(self):
-        pass
-
-    @abstractmethod
-    def save_game(self, game: Game) -> None:
-        pass
+from domain.start_game import Card, TokenStock, Game, GameStartCommand, GameRepository, CardRepository
 
 
 class StubbedGameRepository(GameRepository):
@@ -66,12 +15,6 @@ class StubbedGameRepository(GameRepository):
 GameRepository.register(StubbedGameRepository)
 
 
-class CardRepository(ABC):
-    @abstractmethod
-    def draw_four_cards(self, level):
-        pass
-
-
 class StubbedCardRepository(CardRepository):
     def __init__(self):
         self.cards = {}
@@ -83,7 +26,7 @@ class StubbedCardRepository(CardRepository):
         return self.cards[level]
 
 
-class TestStartGameCommand:
+class TestWhenStartGame:
     @pytest.fixture
     def card_repository(self, cards_level_1, cards_level_2, cards_level_3) -> CardRepository:
         card_repository: StubbedCardRepository = StubbedCardRepository()
@@ -100,7 +43,7 @@ class TestStartGameCommand:
     def start_command(self, card_repository, game_repository):
         return GameStartCommand(card_repository=card_repository, game_repository=game_repository)
 
-    def test_should_start_a_game_with_some_elements(self, start_command, game_repository,
+    def test_then_prepare_a_game_with_some_elements(self, start_command, game_repository,
                                                     cards_level_1, cards_level_2, cards_level_3) -> None:
         start_command.execute(number_of_players=2)
 
@@ -109,7 +52,7 @@ class TestStartGameCommand:
         assert actual.cards_level_2 == cards_level_2
         assert actual.cards_level_3 == cards_level_3
 
-    def test_should_start_a_game_with_five_yellow_tokens(self, start_command, game_repository):
+    def test_then_prepare_yellow_tokens(self, start_command, game_repository) -> None:
         start_command.execute(number_of_players=2)
 
         actual: Game = game_repository.get_game()
@@ -119,9 +62,9 @@ class TestStartGameCommand:
         (2, 4),
         (3, 5),
     ])
-    def test_should_start_a_game_with_tokens_stock_depending_on_number_of_players(self, number_of_players,
-                                                                                  expected_tokens, start_command,
-                                                                                  game_repository):
+    def test_then_prepare_tokens_stock_depending_on_number_of_players(self, number_of_players,
+                                                                      expected_tokens, start_command,
+                                                                      game_repository) -> None:
         start_command.execute(number_of_players=number_of_players)
         actual: Game = game_repository.get_game()
         assert actual.tokens.green == expected_tokens
