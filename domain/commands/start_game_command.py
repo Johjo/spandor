@@ -1,6 +1,5 @@
 from domain.domain import Board, Player, Stock, Card
 
-
 class StartGameCommand:
     def __init__(self, game_repository, cards_repository):
         self.game_repository = game_repository

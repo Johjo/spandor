@@ -4,7 +4,7 @@ A game should start
 
 ## Rules : Prepare some game elements at start
 ```
-Title : Element when game start
+Title : Should draw cards
 Given
     any players
 When
