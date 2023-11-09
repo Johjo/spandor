@@ -2,6 +2,18 @@
 
 User want to see game state
 
+## Rules - Display game not started
+```
+Title : Display game not started (TODO)
+
+Given
+    a game is not started
+When
+    user query game state
+Then
+    suggest to user to start a game 
+```
+
 ## Rules - Display cards
 ```
 Title : Display cards (TODO)
