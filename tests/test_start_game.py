@@ -1,7 +1,7 @@
 import uuid
 import pytest
 
-from domain.start_game import Card, TokenStock, Game, GameStartCommand, GameRepository, CardRepository
+from domain.commands.start_game import Card, TokenStock, Game, GameStartCommand, GameRepository, CardRepository
 
 
 class StubbedGameRepository(GameRepository):

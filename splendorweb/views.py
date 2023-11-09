@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from adapters.game_repository_in_memory import GameRepositoryInMemory
-from domain.commands.start_game_command import StartGameCommand
+from domain.commands_old.start_game_command import StartGameCommand
 from domain.domain import Card
 
 
