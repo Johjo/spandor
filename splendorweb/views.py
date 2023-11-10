@@ -7,9 +7,15 @@ from django.http import HttpResponse
 from adapters.game_repository_in_memory import GameRepositoryInMemory
 from domain.commands_old.start_game_command import StartGameCommand
 from domain.domain import Card
+from domain.queries.game_state import GameQuery, GameNotStartedPresentation
 
 
 def index(request):
+    game = GameQuery().query()
+
+    match game:
+        case GameNotStartedPresentation():
+            return HttpResponse("Do you want to start a game ?")
     return HttpResponse("Hello, world. You're at the polls index.")
 
 

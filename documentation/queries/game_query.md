@@ -4,7 +4,7 @@ User want to see game state
 
 ## Rules - Display game not started
 ```
-Title : Display game not started (TODO)
+Title : Display game not started (Done)
 
 Given
     a game is not started
