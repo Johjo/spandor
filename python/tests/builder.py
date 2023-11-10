@@ -1,6 +1,6 @@
 import uuid
 
-from domain.domain import Stock, Player, Board, Card
+from python.domain.domain import Stock, Player, Board, Card
 
 
 class StockBuilder:

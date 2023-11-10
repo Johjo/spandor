@@ -1,6 +1,6 @@
 import pytest
 
-from domain.commands.take_different_tokens_command import Stock, Player, Game, GameRepository, TakeDifferentTokenCommand
+from python.domain.commands.take_different_tokens_command import Stock, Player, Game, GameRepository, TakeDifferentTokenCommand
 
 
 class StubbedGameRepository(GameRepository):

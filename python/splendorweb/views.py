@@ -1,13 +1,11 @@
 import uuid
 
-from django.shortcuts import render
-
 from django.http import HttpResponse
 
-from adapters.game_repository_in_memory import GameRepositoryInMemory
-from domain.commands_old.start_game_command import StartGameCommand
-from domain.domain import Card
-from domain.queries.game_state import GameQuery, GameNotStartedPresentation
+from python.adapters.game_repository_in_memory import GameRepositoryInMemory
+from python.domain.commands_old.start_game_command import StartGameCommand
+from python.domain.domain import Card
+from python.domain.queries.game_state import GameQuery, GameNotStartedPresentation
 
 
 def index(request):

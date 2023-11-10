@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from domain.queries.game_state import GameQuery, GameNotStartedPresentation
+from python.domain.queries.game_state import GameQuery, GameNotStartedPresentation
 
 
 @dataclass(frozen=True)

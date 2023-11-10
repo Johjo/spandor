@@ -1,4 +1,5 @@
-from domain.domain import Board, Player, Stock, Card
+from python.domain.domain import Board, Player, Stock
+
 
 class StartGameCommand:
     def __init__(self, game_repository, cards_repository):
