@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/Spandor.Web.csproj": {}
+  },
+  "projects": {
+    "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/Spandor.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/Spandor.Web.csproj",
+        "projectName": "Spandor.Web",
+        "projectPath": "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/Spandor.Web.csproj",
+        "packagesPath": "/Users/jonathanlaurent/.nuget/packages/",
+        "outputPath": "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/jonathanlaurent/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.413/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

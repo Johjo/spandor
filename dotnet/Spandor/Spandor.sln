@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spandor.Web", "Spandor.Web\Spandor.Web.csproj", "{3AFA9F4E-879A-4210-B811-AB8AC22799F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spandor.Web.Tests", "Spandor.Web.Tests\Spandor.Web.Tests.csproj", "{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AFA9F4E-879A-4210-B811-AB8AC22799F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AFA9F4E-879A-4210-B811-AB8AC22799F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AFA9F4E-879A-4210-B811-AB8AC22799F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AFA9F4E-879A-4210-B811-AB8AC22799F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
