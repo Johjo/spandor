@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "O3Lcw8ptKNPWJcXvLr9A62TP3zKg2USsP+soHzyJcAtq0sXp959+XegQMbnQI1UBsglHWwMGnAtSoEtxAX9ACQ==",
+  "dgSpecHash": "pkB8ujhRWRVLS9aFh+HMQiG208g7Smh01MzCAteOV9w1zxAD2PfyCrv/SU55pkighV4mTK0vXbLvUhBUZtjMuA==",
   "success": true,
   "projectFilePath": "/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/Spandor.Web.csproj",
   "expectedPackageFiles": [
+    "/Users/jonathanlaurent/.nuget/packages/mediatr/12.1.1/mediatr.12.1.1.nupkg.sha512",
+    "/Users/jonathanlaurent/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/jonathanlaurent/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.aspnetcore.hosting/2.1.1/microsoft.aspnetcore.hosting.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.aspnetcore.hosting.abstractions/2.1.1/microsoft.aspnetcore.hosting.abstractions.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.aspnetcore.hosting.server.abstractions/2.1.1/microsoft.aspnetcore.hosting.server.abstractions.2.1.1.nupkg.sha512",
@@ -19,7 +22,7 @@
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.configuration.environmentvariables/2.1.1/microsoft.extensions.configuration.environmentvariables.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.configuration.fileextensions/2.1.1/microsoft.extensions.configuration.fileextensions.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.dependencyinjection/2.1.1/microsoft.extensions.dependencyinjection.2.1.1.nupkg.sha512",
-    "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/2.1.1/microsoft.extensions.dependencyinjection.abstractions.2.1.1.nupkg.sha512",
+    "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.fileproviders.abstractions/2.1.1/microsoft.extensions.fileproviders.abstractions.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.fileproviders.physical/2.1.1/microsoft.extensions.fileproviders.physical.2.1.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/microsoft.extensions.filesystemglobbing/2.1.1/microsoft.extensions.filesystemglobbing.2.1.1.nupkg.sha512",
@@ -42,5 +45,16 @@
     "/Users/jonathanlaurent/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "/Users/jonathanlaurent/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1608",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.1.1 was resolved.",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -1,18 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=71e45b85_002De457_002D4304_002D9cef_002Db2b265387e7f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HelloWorldTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;TestAncestor&gt;
-      &lt;TestId&gt;xUnit::BB1131A1-23B7-4D4E-87B1-EF7535F6982A::net6.0::Spandor.Web.Tests.UnitTest1&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::BB1131A1-23B7-4D4E-87B1-EF7535F6982A::net6.0::Spandor.Web.Tests.GetGameQueryTests.Should_get_game&lt;/TestId&gt;
-    &lt;/TestAncestor&gt;
-    &lt;And&gt;
-      &lt;TestAncestor&gt;
-        &lt;TestId&gt;xUnit::BB1131A1-23B7-4D4E-87B1-EF7535F6982A::net6.0::Spandor.Web.Tests.GetGameQueryTests&lt;/TestId&gt;
-      &lt;/TestAncestor&gt;
-      &lt;Category&gt;&amp;lt;Uncategorized&amp;gt;&lt;/Category&gt;
-      &lt;Project Location="/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web.Tests" Presentation="&amp;lt;Spandor.Web.Tests&amp;gt;" /&gt;
-    &lt;/And&gt;
-  &lt;/Or&gt;
+  &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b809b57e_002D02fa_002D45f6_002D99f8_002D533a9de7de65/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="HelloWorldTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;

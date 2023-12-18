@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spandor.Web", "Spandor.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spandor.Web.Tests", "Spandor.Web.Tests\Spandor.Web.Tests.csproj", "{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spandor.Web.Technical.Tests", "Spandor.Web.Technical.Tests\Spandor.Web.Technical.Tests.csproj", "{6DD2D7C5-D77F-4101-B92A-2550AF790E1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB1131A1-23B7-4D4E-87B1-EF7535F6982A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD2D7C5-D77F-4101-B92A-2550AF790E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD2D7C5-D77F-4101-B92A-2550AF790E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD2D7C5-D77F-4101-B92A-2550AF790E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD2D7C5-D77F-4101-B92A-2550AF790E1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

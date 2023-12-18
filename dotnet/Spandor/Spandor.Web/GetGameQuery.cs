@@ -1,3 +1,3 @@
 namespace Spandor.Web;
 
-public record GetGameQuery;
+public record GetGameQuery: IQuery<GamePresentation>;

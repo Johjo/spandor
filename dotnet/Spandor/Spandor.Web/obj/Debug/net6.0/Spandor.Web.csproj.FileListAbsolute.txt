@@ -25,3 +25,7 @@
 /Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/obj/Debug/net6.0/Spandor.Web.pdb
 /Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/obj/Debug/net6.0/Spandor.Web.genruntimeconfig.cache
 /Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/obj/Debug/net6.0/ref/Spandor.Web.dll
+/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/bin/Debug/net6.0/MediatR.dll
+/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/bin/Debug/net6.0/MediatR.Contracts.dll
+/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/bin/Debug/net6.0/MediatR.Extensions.Microsoft.DependencyInjection.dll
+/Users/jonathanlaurent/projects/personnel/spandor/dotnet/Spandor/Spandor.Web/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll

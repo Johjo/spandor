@@ -23,7 +23,8 @@ public class GetGameQueryTests
                     .UseStartup<Startup>()
                     .UseTestServer(o => o.BaseAddress = new Uri("https://localhost/")))
             .ConfigureServices(
-                services => services.AddSingleton<IQueryBus>(_queryBus))
+                services => services.AddControllers().Services.AddSingleton<IQueryBus>(_queryBus))
+            
             .Build();
         host.StartAsync();
         _client = host.GetTestClient();
@@ -51,20 +52,19 @@ public class GetGameQueryTests
 
 public class StubbedQueryBus : IQueryBus
 {
-    private readonly Dictionary<string, GamePresentation> _presentations = new();
+    private readonly Dictionary<string, object> _presentations = new();
     
     public void Feed(GetGameQuery query, GamePresentation expected)
     {
         _presentations[ToKey(query)] = expected;
     }
-
-
-    public GamePresentation Dispatch(GetGameQuery query)
+    
+    public Task<TResponse> Dispatch<TResponse>(IQuery<TResponse> query)
     {
-        return _presentations[ToKey(query)];
+        return Task.FromResult((TResponse) _presentations[ToKey<TResponse>(query)]);
     }
 
-    private static string ToKey(GetGameQuery query)
+    private string ToKey<TResponse>(IQuery<TResponse> query)
     {
         return JsonSerializer.Serialize(query);
     }

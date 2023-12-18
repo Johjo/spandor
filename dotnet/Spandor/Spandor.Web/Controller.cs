@@ -12,10 +12,9 @@ public class Controller : ControllerBase
     }
     
     [Route("game")]
-    public GamePresentation GetGame()
+    public Task<GamePresentation> GetGame()
     {
         return _bus.Dispatch(new GetGameQuery());
-        return new GamePresentation(Guid.NewGuid());
     }
     
     

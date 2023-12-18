@@ -2,5 +2,5 @@ namespace Spandor.Web;
 
 public interface IQueryBus
 {
-    public GamePresentation Dispatch(GetGameQuery query);
+    public Task<TResponse> Dispatch<TResponse>(IQuery<TResponse> query);
 }
